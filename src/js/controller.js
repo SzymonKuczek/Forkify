@@ -104,6 +104,11 @@ const controlAddRecipe = function (newRecipe) {
   console.log(newRecipe);
 
   // Upload new recipe data
+  try {
+    model.uploadRecipe(newRecipe);
+  } catch {
+    addRecipeView.renderError(err.message);
+  }
 };
 
 const init = function () {
